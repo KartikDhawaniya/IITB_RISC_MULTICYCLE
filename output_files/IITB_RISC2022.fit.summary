@@ -1,0 +1,11 @@
+Fitter Status : Successful - Sat Apr 16 23:45:51 2022
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : IITB_RISC2022
+Top-level Entity Name : alu
+Family : MAX V
+Device : 5M160ZM100C4
+Timing Models : Final
+Total logic elements : 123 / 160 ( 77 % )
+Total pins : 52 / 79 ( 66 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

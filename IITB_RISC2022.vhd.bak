@@ -1,0 +1,163 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity IITB_RISC2022 is
+    port(
+        pcm,a3m,d3m,aluAm,aluBm,aluin: in std_logic_vector (1 downto 0);
+        pcw,irw,rfw,t1w,t2w,t3w,t4w,imw,dmw,xw,zw,cw,clk,rst,t4m: in std_logic;
+		  cout,zout:out std_logic
+    );
+end entity;
+
+architecture arci of IITB_RISC2022 is
+
+component muxe_2bit IS
+    PORT (
+        input1, input2: IN STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
+        flag : IN STD_LOGIC;
+        output : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END component;
+component muxe_3bit IS
+    PORT (
+        input1, input2, input3, input4 : IN STD_LOGIC_VECTOR(2 DOWNTO 0) := (OTHERS => '0');
+        flag : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        output : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
+END component;
+component my_register IS
+    PORT (
+        clk, ena, clr : IN STD_LOGIC;
+        input : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        output : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END component;
+component register_file IS
+    PORT (
+        data_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        sel_in, sel_out1, sel_out2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        clk, wr_ena, reset : IN STD_LOGIC;
+        data_out1, data_out2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+
+END component;
+component ram IS
+    PORT (
+        aclr : IN STD_LOGIC := '0';
+        address : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+        clock : IN STD_LOGIC := '1';
+        data : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+        wren : IN STD_LOGIC;
+        q : OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+    );
+END component;
+component alu IS
+    PORT (
+        inp1, inp2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        output : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+        carry, zero : OUT STD_LOGIC);
+END component;
+component sign_extend6bit IS
+    PORT (
+        inp : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
+        output : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END component;
+component sign_extend9bit IS
+    PORT (
+        inp : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+        output : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END component;
+
+component left_shift7bit IS
+    PORT (
+        input : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+        output : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END component;
+component muxe_4bit IS
+    PORT (
+        input1, input2, input3, input4 : IN STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
+        flag : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        output : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END component;
+
+component my_register1bit IS
+    PORT (
+        clk, ena, clr : IN STD_LOGIC;
+        input : IN STD_LOGIC;
+        output : OUT STD_LOGIC
+		  );
+END component;
+
+signal pcin,pcout,imout,irout,ls7out,t1out,t2out,t4out,t3out,d3in,d1out,d2out,x6out,x9out,xout,aluAin,aluBin,dmout,t4in,t3in,asmout: std_logic_vector(15 downto 0);
+signal a3in: std_logic_vector(2 downto 0);
+signal cin,zin,tc,tz:std_logic;
+
+begin
+
+	pc_reg:my_register
+	port map(clk,pcw,rst,pcin,pcout);
+	
+	im:ram
+	port map(rst,pcout,clk,"0000000000000000",imw,imout);
+	
+	ir_reg:my_register
+	port map(clk,irw,rst,imout,irout);
+	
+	a3muxe:muxe_3bit
+	port map(irout(8 downto 6),irout(5 downto 3),irout(11 downto 9),"000",a3m,a3in);
+	
+	d3muxe:muxe_4bit
+	port map(ls7out,t4out,t3out,"0000000000000000",d3m,d3in);
+	
+	reg:register_file
+	port map(d3in,a3in,irout(11 downto 9),irout(8 downto 6),clk,rfw,rst,d1out,d2out);
+	
+	l7shift:left_shift7bit
+	port map(irout(8 downto 0),ls7out);
+	
+	extend6bit:sign_extend6bit
+	port map(irout(5 downto 0),x6out);
+	
+	extend9bit:sign_extend9bit
+	port map(irout(8 downto 0),x9out);
+	
+	t1reg:my_register
+	port map(clk,t1w,rst,d1out,t1out);
+	
+	t2reg:my_register
+	port map(clk,t2w,rst,d2out,t2out);
+	
+	aluAmuxe:muxe_4bit
+	port map(xout,t1out,x6out,"0000000000000000",aluAm,aluAin);
+	
+	aluBmuxe:muxe_4bit
+	port map(x9out,t2out,x6out,"0000000000000000",aluBm,aluBin);
+	
+	main_alu:alu
+	port map(aluAin,aluBin,aluin,t3in,cin,zin);
+	
+	xreg:my_register
+	port map(clk,xw,rst,pcout,xout);
+	
+	creg:my_register1bit
+	port map(clk,cw,rst,cin,cout);
+	
+	zreg:my_register1bit
+	port map(clk,zw,rst,zin,zout);
+	
+	dm:ram
+	port map(rst,t3out,clk,t1out,dmw,dmout);
+	
+	t4muxe:muxe_2bit
+	port map(dmout,pcout,t4m,t4in);
+	
+	t4reg:my_register
+	port map(clk,t4w,rst,t4in,t4out);
+	
+	t3reg:my_register
+	port map(clk,t3w,rst,t3in,t3out);
+	
+	asm_alu:alu
+	port map(pcout,"0000000000000001","00",asmout,tc,tz);
+	
+	pc_muxe:muxe_4bit
+	port map(asmout,t3out,t2out,t3in,pcm,pcin);
+	
+end architecture;

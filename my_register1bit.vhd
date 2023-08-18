@@ -1,0 +1,28 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY my_register1bit IS
+    PORT (
+        clk, ena, clr : IN STD_LOGIC;
+        input : IN STD_LOGIC;
+        output : OUT STD_LOGIC
+		  );
+END ENTITY;
+
+ARCHITECTURE arc_my_register OF my_register1bit IS
+BEGIN
+    PROCESS (clk, clr)
+    BEGIN
+        IF (clk'event AND clk = '1') THEN
+            IF (ena = '1') THEN
+                output<=input;
+            END IF;
+        END IF;
+        IF (clr = '1') THEN
+            output <= '0';
+        END IF;
+    END PROCESS;
+
+END ARCHITECTURE;
+

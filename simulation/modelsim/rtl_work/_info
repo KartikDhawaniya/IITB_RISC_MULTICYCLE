@@ -1,0 +1,361 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/anand/Downloads/CS230_Project/simulation/modelsim
+Eadd_2bit
+Z1 w1650042299
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z5 8/home/anand/Downloads/CS230_Project/add_2bit.vhd
+Z6 F/home/anand/Downloads/CS230_Project/add_2bit.vhd
+l0
+L5 1
+VCKf083KP?k>:]@VQ8G^Y:0
+!s100 zh@5Oo<YS4ILdkY>9I@7>0
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1650132963
+!i10b 1
+Z9 !s108 1650132963.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/anand/Downloads/CS230_Project/add_2bit.vhd|
+Z11 !s107 /home/anand/Downloads/CS230_Project/add_2bit.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Aarc
+R2
+R3
+R4
+DEx4 work 8 add_2bit 0 22 CKf083KP?k>:]@VQ8G^Y:0
+!i122 1
+l18
+L11 11
+VDjVgUIi;7V38AU<cj>j?O1
+!s100 IRBlJMPA4CiTfGnof[_iO2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eadd_8bit
+Z14 w1650042802
+R2
+R3
+R4
+!i122 3
+R0
+Z15 8/home/anand/Downloads/CS230_Project/add_8bit.vhd
+Z16 F/home/anand/Downloads/CS230_Project/add_8bit.vhd
+l0
+L5 1
+VfFBSYCKYh>`RH?Bk_7VJG0
+!s100 oD^5m;e`H0=Vj0lVP9Y[i1
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|/home/anand/Downloads/CS230_Project/add_8bit.vhd|
+Z18 !s107 /home/anand/Downloads/CS230_Project/add_8bit.vhd|
+!i113 1
+R12
+R13
+Aarc
+R2
+R3
+R4
+DEx4 work 8 add_8bit 0 22 fFBSYCKYh>`RH?Bk_7VJG0
+!i122 3
+l21
+L13 14
+Vc@hR3h:cJ=U6mJ68cUCP?0
+!s100 =jPQZO@UUjKVkWTNdo>?M0
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Eadder
+Z19 w1650132690
+Z20 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R2
+R3
+R4
+!i122 5
+R0
+Z21 8/home/anand/Downloads/CS230_Project/adder.vhd
+Z22 F/home/anand/Downloads/CS230_Project/adder.vhd
+l0
+L6 1
+V2B:2Q;K8Lk3kOA`A0PgQW3
+!s100 2]iN:7;<R_X]82j2zj_>R3
+R7
+31
+R8
+!i10b 1
+R9
+Z23 !s90 -reportprogress|300|-93|-work|work|/home/anand/Downloads/CS230_Project/adder.vhd|
+Z24 !s107 /home/anand/Downloads/CS230_Project/adder.vhd|
+!i113 1
+R12
+R13
+Aarc_adder
+R20
+R2
+R3
+R4
+DEx4 work 5 adder 0 22 2B:2Q;K8Lk3kOA`A0PgQW3
+!i122 5
+l32
+L15 35
+V1h>8IoMlAC<n]I5J3^O2[2
+!s100 Wh@PPJok]dZQl26?cTbUb3
+R7
+31
+R8
+!i10b 1
+R9
+R23
+R24
+!i113 1
+R12
+R13
+Ealu
+Z25 w1650132860
+R2
+R3
+R4
+!i122 4
+R0
+Z26 8/home/anand/Downloads/CS230_Project/alu.vhd
+Z27 F/home/anand/Downloads/CS230_Project/alu.vhd
+l0
+L5 1
+V@<HI=dcn4KK]fN03hhBLB1
+!s100 a0i@X9<<iQ:HSK:QOiiHU2
+R7
+31
+R8
+!i10b 1
+R9
+Z28 !s90 -reportprogress|300|-93|-work|work|/home/anand/Downloads/CS230_Project/alu.vhd|
+Z29 !s107 /home/anand/Downloads/CS230_Project/alu.vhd|
+!i113 1
+R12
+R13
+Aarc_alu
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 @<HI=dcn4KK]fN03hhBLB1
+!i122 4
+l36
+L13 53
+V0WV8?k<>W>4^FJGQRP63c0
+!s100 ?z<PJ8J>iTISGfz7>5;@c3
+R7
+31
+R8
+!i10b 1
+R9
+R28
+R29
+!i113 1
+R12
+R13
+Ecarry_generate
+Z30 w1650034700
+R2
+Z31 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+R3
+R4
+!i122 6
+R0
+Z32 8/home/anand/Downloads/CS230_Project/carry_generate.vhd
+Z33 F/home/anand/Downloads/CS230_Project/carry_generate.vhd
+l0
+L6 1
+V8zYPWN5TQa>RkOjL[jSzl3
+!s100 3EjR_0:5S9<oPlIB08cZO1
+R7
+31
+R8
+!i10b 1
+R9
+Z34 !s90 -reportprogress|300|-93|-work|work|/home/anand/Downloads/CS230_Project/carry_generate.vhd|
+Z35 !s107 /home/anand/Downloads/CS230_Project/carry_generate.vhd|
+!i113 1
+R12
+R13
+Aarc_carry_generate
+R2
+R31
+R3
+R4
+DEx4 work 14 carry_generate 0 22 8zYPWN5TQa>RkOjL[jSzl3
+!i122 6
+l15
+L13 11
+V?=oSW5QJQ>d<dc44A?<GW0
+!s100 ZK;OjC_>[k1HlWRCSEASk3
+R7
+31
+R8
+!i10b 1
+R9
+R34
+R35
+!i113 1
+R12
+R13
+Efull_adder
+Z36 w1650029444
+R2
+R31
+R3
+R4
+!i122 7
+R0
+Z37 8/home/anand/Downloads/CS230_Project/full_adder.vhd
+Z38 F/home/anand/Downloads/CS230_Project/full_adder.vhd
+l0
+L6 1
+V?nn1g5V?1]:`z3lZ]g1mi2
+!s100 cA01eDF^RWE^NM23ZR6f:0
+R7
+31
+R8
+!i10b 1
+R9
+Z39 !s90 -reportprogress|300|-93|-work|work|/home/anand/Downloads/CS230_Project/full_adder.vhd|
+!s107 /home/anand/Downloads/CS230_Project/full_adder.vhd|
+!i113 1
+R12
+R13
+Aarc_full_adder
+R2
+R31
+R3
+R4
+DEx4 work 10 full_adder 0 22 ?nn1g5V?1]:`z3lZ]g1mi2
+!i122 7
+l13
+L12 8
+V=QjhR7O^7lM2TR7joBYHS3
+!s100 a;Bm1RQ_;LEoR`Ym]jfO32
+R7
+31
+R8
+!i10b 1
+R9
+R39
+Z40 !s107 /home/anand/Downloads/CS230_Project/full_adder.vhd|
+!i113 1
+R12
+R13
+Efull_adder1bit
+Z41 w1650118264
+R2
+R3
+R4
+!i122 2
+R0
+Z42 8/home/anand/Downloads/CS230_Project/full_adder1bit.vhd
+Z43 F/home/anand/Downloads/CS230_Project/full_adder1bit.vhd
+l0
+L5 1
+VOFNKUYWd91]OcR04`7O^E3
+!s100 WLJ4CL0bk=n2mOoeV7<TO0
+R7
+31
+R8
+!i10b 1
+R9
+Z44 !s90 -reportprogress|300|-93|-work|work|/home/anand/Downloads/CS230_Project/full_adder1bit.vhd|
+Z45 !s107 /home/anand/Downloads/CS230_Project/full_adder1bit.vhd|
+!i113 1
+R12
+R13
+Afull_adder1bit
+R2
+R3
+R4
+DEx4 work 14 full_adder1bit 0 22 OFNKUYWd91]OcR04`7O^E3
+!i122 2
+l13
+L11 6
+VXYzgEL5M0E`<YfXMXDb`12
+!s100 ^=bX[kLz;jbGT5G]Zn6:J1
+R7
+31
+R8
+!i10b 1
+R9
+R44
+R45
+!i113 1
+R12
+R13
+Esub_16bit
+Z46 w1650042665
+R2
+R3
+R4
+!i122 0
+R0
+Z47 8/home/anand/Downloads/CS230_Project/sub_16bit.vhd
+Z48 F/home/anand/Downloads/CS230_Project/sub_16bit.vhd
+l0
+L5 1
+Vmj:PI<lOG?nMo51ED08;m1
+!s100 6]Xd_4RJXNVgB7U]m@GT^3
+R7
+31
+R8
+!i10b 1
+R9
+Z49 !s90 -reportprogress|300|-93|-work|work|/home/anand/Downloads/CS230_Project/sub_16bit.vhd|
+Z50 !s107 /home/anand/Downloads/CS230_Project/sub_16bit.vhd|
+!i113 1
+R12
+R13
+Aarc
+R2
+R3
+R4
+DEx4 work 9 sub_16bit 0 22 mj:PI<lOG?nMo51ED08;m1
+!i122 0
+l22
+L12 17
+VGimVPTHKD_3D9bJSKfc]?2
+!s100 d9I>J@LnzY3zW5ANK@J9K1
+R7
+31
+R8
+!i10b 1
+R9
+R49
+R50
+!i113 1
+R12
+R13

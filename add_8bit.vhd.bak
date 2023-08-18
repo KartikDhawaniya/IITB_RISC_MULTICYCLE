@@ -1,0 +1,29 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+LIBRARY work;
+USE work.basic.ALL;
+
+ENTITY add_8bit IS
+    PORT (
+        A, B : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        c0 : IN STD_LOGIC;
+        c8 : OUT STD_LOGIC;
+        S : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+END ENTITY;
+
+ARCHITECTURE arc OF add_8bit IS
+    SIGNAL c2, c4, c6 : STD_LOGIC;
+    COMPONENT add_2bit IS
+        PORT (
+            a0, a1, b0, b1, c0 : IN STD_LOGIC;
+            s0, s1, c2 : OUT STD_LOGIC);
+    END COMPONENT;
+
+BEGIN
+    inst1 : add_2bit PORT MAP(A(0), A(1), B(0), B(1), c0, S(0), S(1), c2);
+    inst2 : add_2bit PORT MAP(A(2), A(3), B(2), B(3), c2, S(2), S(3), c4);
+    inst3 : add_2bit PORT MAP(A(4), A(5), B(4), B(5), c4, S(4), S(5), c6);
+    inst4 : add_2bit PORT MAP(A(6), A(7), B(6), B(7), c6, S(6), S(7), c8);
+END ARCHITECTURE;

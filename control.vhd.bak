@@ -1,0 +1,35 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+
+entity control is
+    port
+    ( 
+    control_in: in std_logic_vector (3 downto 0);
+    t4: out std_logic;
+    aluB: out std_logic_vector (1 downto 0);
+    aluA: out std_logic_vector (1 downto 0);
+    d3: out std_logic_vector (1 downto 0);
+    a3: out std_logic_vector (1 downto 0);
+    pc: out std_logic_vector (1 downto 0) );
+
+end control;
+
+architecture control_arch of control is
+
+
+begin
+
+    t4 <= not control_in(2);
+    aluB(0) <= control_in(1);
+    aluB(1) <= not control_in(3) and not control_in(1);
+    aluA(0) <= ( not control_in(2) and not control_in(0) ) or ( not control_in(1) and not control_in(0) );
+    aluA(1) <= control_in(2) and control_in(1);
+    d3(0) <= not control_in(0) or ( control_in(1) and control_in(3) );
+    d3(1) <= not control_in(3);
+    a3(0) <= not control_in(3) and not control_in(2);
+    a3(1) <= control_in(3);
+    pc(0) <= control_in(3) and not control_in(0);
+    pc(1) <= control_in(2) or control_in(0);
+
+end control_arch ; -- control_arch
